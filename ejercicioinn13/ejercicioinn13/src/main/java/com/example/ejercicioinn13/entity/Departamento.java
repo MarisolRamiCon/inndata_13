@@ -4,10 +4,10 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "departamento2")
+@Table(name = "departamento")
 public class Departamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //esta línea debe de existir cuando le colocamos el auto_increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //esta línea debe de existir cuando le colocamos el auto_increment
     @Column(name = "id_departamento")
     private Integer idDepartamento;
 
