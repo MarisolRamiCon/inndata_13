@@ -16,12 +16,13 @@ public class DepartamentoService implements IDepartamentoService {
     @Override
     public List<Departamento> readAll() {
 
-        return departamentoRepository.findAll();
+        return departamentoRepository.findAll().stream().filter(departamento -> departamento.getActive()==true).toList();
     }
 
     @Override
     public Optional<Departamento> readById(int id) {
         Optional<Departamento> departamento= departamentoRepository.findById(id);
+
         return departamento;
     }
 
@@ -37,7 +38,16 @@ public class DepartamentoService implements IDepartamentoService {
 
     @Override
     public void delete(Departamento departamento) {
-        departamentoRepository.delete(departamento);
+        Optional<Departamento> departamentoOptional= departamentoRepository.findById(departamento.getIdDepartamento());
+        if(departamentoOptional.isPresent()){
+            Departamento departamentoABorrar=departamentoOptional.get();
+            departamentoABorrar.setActive(false);
+            System.out.println("El departamento ha sido borrado satisfactoriamente");
+            departamentoRepository.save(departamentoABorrar);
+        }else{
+            System.out.println("El departamento con id no existe");
+        }
+
     }
 
 

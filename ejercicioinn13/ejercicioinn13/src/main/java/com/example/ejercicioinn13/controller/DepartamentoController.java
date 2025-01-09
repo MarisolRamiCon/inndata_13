@@ -16,6 +16,7 @@ public class DepartamentoController {
 
     @GetMapping("/departamentos")
     public List<Departamento> readAll(){
+
         return departamentoService.readAll();
     }
 

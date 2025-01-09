@@ -1,9 +1,15 @@
 package com.example.ejercicioinn13.entity;
 
 import jakarta.persistence.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+/*@AllArgsConstructor //Constructor con todos los argumentos
+@NoArgsConstructor //Metodo constructor sin argumentos
+@Data //Getter y Setter*/
+
 @Table(name = "departamento")
 public class Departamento {
     @Id
@@ -17,14 +23,19 @@ public class Departamento {
     @Column(name = "precio")
     private Double precio;
 
-    public Departamento(Integer idDepartamento, Integer m2, Double precio) {
-        this.idDepartamento = idDepartamento;
-        this.m2 = m2;
-        this.precio = precio;
-    }
+    @Column(name="is_active")
+    private Boolean isActive;
 
     public Departamento() {
     }
+
+    public Departamento(Integer idDepartamento, Integer m2, Double precio, Boolean isActive) {
+        this.idDepartamento = idDepartamento;
+        this.m2 = m2;
+        this.precio = precio;
+        this.isActive = isActive;
+    }
+
 
     public Integer getIdDepartamento() {
         return idDepartamento;
@@ -48,5 +59,13 @@ public class Departamento {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }
