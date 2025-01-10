@@ -6,10 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-/*@AllArgsConstructor //Constructor con todos los argumentos
+/*@Table(name = "departamento")
+@AllArgsConstructor //Constructor con todos los argumentos
 @NoArgsConstructor //Metodo constructor sin argumentos
 @Data //Getter y Setter*/
-@Table(name = "departamento")
+
 public class Departamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //esta línea debe de existir cuando le colocamos el auto_increment

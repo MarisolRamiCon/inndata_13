@@ -53,5 +53,9 @@ public class DepartamentoService implements IDepartamentoService {
 
     }
 
+    public List<Departamento> findByM2(Long m2){
+        return departamentoRepository.findByM2(m2);
+    }
+
 
 }

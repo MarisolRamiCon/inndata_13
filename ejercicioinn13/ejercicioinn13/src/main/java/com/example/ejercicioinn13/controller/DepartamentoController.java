@@ -3,6 +3,7 @@ package com.example.ejercicioinn13.controller;
 import com.example.ejercicioinn13.entity.Departamento;
 import com.example.ejercicioinn13.response.DepartamentoResponse;
 import com.example.ejercicioinn13.service.impl.DepartamentoService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,11 @@ public class DepartamentoController {
     public Optional<Departamento> readById(@PathVariable Long id){
         return departamentoService.readById(id);
     }
+
+    @GetMapping("/departamento")
+    public List<Departamento> findByM2(@PathParam("m2") Long m2){
+        return departamentoService.findByM2(m2);
+    }
 //Post es para create y el put es para update
     @PostMapping("/departamentos")
     public DepartamentoResponse create(@RequestBody Departamento departamento){
@@ -40,6 +46,8 @@ public class DepartamentoController {
     public void delete(@RequestBody Departamento departamento){
         departamentoService.delete(departamento);
     }
+
+
 
 
 }

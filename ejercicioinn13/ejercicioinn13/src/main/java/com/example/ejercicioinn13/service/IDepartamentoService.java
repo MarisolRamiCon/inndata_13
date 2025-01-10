@@ -12,4 +12,5 @@ public interface IDepartamentoService {
     public DepartamentoResponse create(Departamento departamento);
     public Departamento update(Departamento departamento);
     public void delete(Departamento departamento);
+    public List<Departamento> findByM2(Long m2);
 }
