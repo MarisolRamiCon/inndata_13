@@ -1,6 +1,7 @@
 package com.example.ejercicioinn13.controller;
 
 import com.example.ejercicioinn13.entity.Departamento;
+import com.example.ejercicioinn13.response.DepartamentoResponse;
 import com.example.ejercicioinn13.service.impl.DepartamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,18 +22,18 @@ public class DepartamentoController {
     }
 
     @GetMapping("/departamento/{id}")
-    public Optional<Departamento> readById(@PathVariable int id){
+    public Optional<Departamento> readById(@PathVariable Long id){
         return departamentoService.readById(id);
     }
 //Post es para create y el put es para update
     @PostMapping("/departamentos")
-    public Departamento create(@RequestBody Departamento departamento){
+    public DepartamentoResponse create(@RequestBody Departamento departamento){
         return departamentoService.create(departamento);
     }
 
     @PutMapping("/departamentos")
     public Departamento update(@RequestBody Departamento departamento){
-        return departamentoService.create(departamento);
+        return departamentoService.update(departamento);
     }
 
     @DeleteMapping("/departamentos")

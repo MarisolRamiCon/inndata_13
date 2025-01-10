@@ -9,16 +9,15 @@ import lombok.NoArgsConstructor;
 /*@AllArgsConstructor //Constructor con todos los argumentos
 @NoArgsConstructor //Metodo constructor sin argumentos
 @Data //Getter y Setter*/
-
 @Table(name = "departamento")
 public class Departamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //esta línea debe de existir cuando le colocamos el auto_increment
     @Column(name = "id_departamento")
-    private Integer idDepartamento;
+    private Long idDepartamento;
 
     @Column(name = "m2")
-    private Integer m2;
+    private Long m2;
 
     @Column(name = "precio")
     private Double precio;
@@ -29,27 +28,26 @@ public class Departamento {
     public Departamento() {
     }
 
-    public Departamento(Integer idDepartamento, Integer m2, Double precio, Boolean isActive) {
+    public Departamento(Long idDepartamento, Long m2, Double precio, Boolean isActive) {
         this.idDepartamento = idDepartamento;
         this.m2 = m2;
         this.precio = precio;
         this.isActive = isActive;
     }
 
-
-    public Integer getIdDepartamento() {
+    public Long getIdDepartamento() {
         return idDepartamento;
     }
 
-    public void setIdDepartamento(Integer idDepartamento) {
+    public void setIdDepartamento(Long idDepartamento) {
         this.idDepartamento = idDepartamento;
     }
 
-    public Integer getM2() {
+    public Long getM2() {
         return m2;
     }
 
-    public void setM2(Integer m2) {
+    public void setM2(Long m2) {
         this.m2 = m2;
     }
 

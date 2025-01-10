@@ -2,6 +2,7 @@ package com.example.ejercicioinn13.service.impl;
 
 import com.example.ejercicioinn13.entity.Departamento;
 import com.example.ejercicioinn13.repository.DepartamentoRepository;
+import com.example.ejercicioinn13.response.DepartamentoResponse;
 import com.example.ejercicioinn13.service.IDepartamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,15 +21,17 @@ public class DepartamentoService implements IDepartamentoService {
     }
 
     @Override
-    public Optional<Departamento> readById(int id) {
+    public Optional<Departamento> readById(Long id) {
         Optional<Departamento> departamento= departamentoRepository.findById(id);
 
         return departamento;
     }
 
     @Override
-    public Departamento create(Departamento departamento) {
-        return departamentoRepository.save(departamento);
+    public DepartamentoResponse create(Departamento departamento) {
+        departamentoRepository.save(departamento);
+        DepartamentoResponse departamentoResponse = new DepartamentoResponse(departamento.getIdDepartamento(),departamento.getPrecio());
+        return departamentoResponse;
     }
 
     @Override
@@ -45,7 +48,7 @@ public class DepartamentoService implements IDepartamentoService {
             System.out.println("El departamento ha sido borrado satisfactoriamente");
             departamentoRepository.save(departamentoABorrar);
         }else{
-            System.out.println("El departamento con id no existe");
+            System.out.println("El departamento no existe");
         }
 
     }
