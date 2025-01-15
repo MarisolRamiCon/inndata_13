@@ -53,8 +53,13 @@ public class DepartamentoService implements IDepartamentoService {
 
     }
 
-    public List<Departamento> findByM2(Long m2){
-        return departamentoRepository.findByM2(m2);
+    public List<Departamento> findByM2LessThan(Long m2){
+        return departamentoRepository.findByM2LessThan(m2);
+    }
+
+    @Override
+    public List<Departamento> precioAndM2(Double precio, Long m2) {
+        return departamentoRepository.precioAndM2(precio, m2);
     }
 
 

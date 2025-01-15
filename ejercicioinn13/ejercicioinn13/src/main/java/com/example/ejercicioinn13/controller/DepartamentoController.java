@@ -28,8 +28,14 @@ public class DepartamentoController {
     }
 
     @GetMapping("/departamento")
-    public List<Departamento> findByM2(@PathParam("m2") Long m2){
-        return departamentoService.findByM2(m2);
+    public List<Departamento> findByM2LowerThan(@PathParam("m2") Long m2){
+        return departamentoService.findByM2LessThan(m2);
+    }
+
+    @GetMapping("/precioandm2")
+    public List<Departamento> precioAndM2(@PathParam("precio") Double precio,
+                                          @PathParam("m2") Long m2){
+        return departamentoService.precioAndM2(precio,m2);
     }
 //Post es para create y el put es para update
     @PostMapping("/departamentos")
