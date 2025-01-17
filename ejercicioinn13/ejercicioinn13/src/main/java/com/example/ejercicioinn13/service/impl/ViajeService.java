@@ -16,4 +16,9 @@ public class ViajeService implements IViajeService {
     public List<Viaje> readAll() {
         return viajeC.getData();
     }
+
+    @Override
+    public Viaje create(Viaje viaje) {
+        return viajeC.postData();
+    }
 }

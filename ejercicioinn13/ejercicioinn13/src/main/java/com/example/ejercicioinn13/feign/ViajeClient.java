@@ -3,6 +3,7 @@ package com.example.ejercicioinn13.feign;
 import com.example.ejercicioinn13.response.Viaje;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -10,4 +11,6 @@ import java.util.List;
 public interface ViajeClient {
     @GetMapping("/viajes")
     public List<Viaje> getData();
+    @PostMapping("/viajes")
+    public Viaje postData();
 }

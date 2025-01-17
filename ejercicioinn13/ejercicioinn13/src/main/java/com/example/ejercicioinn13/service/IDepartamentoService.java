@@ -11,7 +11,7 @@ public interface IDepartamentoService {
     public Optional<Departamento> readById(Long id);
     public DepartamentoResponse create(Departamento departamento);
     public Departamento update(Departamento departamento);
-    public void delete(Departamento departamento);
+    public String delete(Departamento departamento);
     public List<Departamento> findByM2LessThan(Long m2);
     public List<Departamento> precioAndM2(Double precio, Long m2);
 }

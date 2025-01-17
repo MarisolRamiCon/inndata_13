@@ -24,7 +24,7 @@ public class Departamento {
     private Double precio;
 
     @Column(name="is_active")
-    private Boolean isActive;
+    private Boolean isActive=true;
 
     public Departamento() {
     }

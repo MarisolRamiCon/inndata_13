@@ -49,8 +49,8 @@ public class DepartamentoController {
     }
 
     @DeleteMapping("/departamentos")
-    public void delete(@RequestBody Departamento departamento){
-        departamentoService.delete(departamento);
+    public String delete(@RequestBody Departamento departamento){
+        return departamentoService.delete(departamento);
     }
 
 

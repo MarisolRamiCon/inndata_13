@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IViajeService {
     public List<Viaje> readAll();
+    public Viaje create(Viaje viaje);
 }
